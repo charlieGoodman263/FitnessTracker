@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileUtils {
-    public static void appendToFile(String appendedText) {
+    public static void appendUser(String appendedText) {
         try (FileWriter myWriter = new FileWriter("userLoginInfo.txt", true)) {
             myWriter.write("\n" + appendedText);
             //System.out.println("Successfully appended to the file.");

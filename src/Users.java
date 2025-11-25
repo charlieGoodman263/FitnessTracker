@@ -11,7 +11,7 @@ public class Users {
         this.users = new ArrayList<User>();
         for (String user : FileUtils.retrieveUserData()) {
             String[] userData = user.split(":");
-            users.add(new User(userData[0], userData[1]));
+            users.add(new User(userData[0], userData[1], userData[2]));
         }
     }
 
@@ -55,8 +55,9 @@ public class Users {
         System.out.print("Please enter a password: ");
         password = sc.nextLine();
 
-        users.add(new User(userName, password));
-        FileUtils.appendToFile(userName + ":" + password);
+        String userID = "" + (Integer.parseInt(FileUtils.retrieveUserData().getLast().split(":")[0]) + 1); // retrieves the userID of the last user in the file and adds 1, then converts back to a string
+        users.add(new User(userID, userName, password));
+        FileUtils.appendUser(userID + ":" + userName + ":" + password);
 
         System.out.println("Account created.");
     }

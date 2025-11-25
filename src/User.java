@@ -1,15 +1,13 @@
-import java.util.HashMap;
-
 public class User {
-    private String userName;
-    private String password;
-    private HashMap<Exercise, Double> personalBests;
+    protected int userID;
+    protected String userName;
+    protected String password;
 
     // Constructors
-    public User(String userName, String password) {
+    public User(String userID, String userName, String password) {
+        this.userID = Integer.parseInt(userID);
         this.userName = userName;
         this.password = password;
-        this.personalBests = new HashMap<Exercise, Double>();
     }
 
     // Getters & Setters
@@ -25,17 +23,13 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    public HashMap<Exercise, Double> getPersonalBests() {
-        return personalBests;
-    }
 
+    @Override
     public String toString() {
-        return "Username: " + userName + "\n"
-                + "Password: " + password + "\n"
-                + "Personal Bests: " + personalBests + "\n";
+        return "User ID: " + userID + "\n"
+                + "Username: " + userName + "\n"
+                + "Password: " + password + "\n";
     }
 
-    public void newPersonalBest(Exercise exercise, Double best) {
-        this.personalBests.put(exercise, best);
-    }
+
 }

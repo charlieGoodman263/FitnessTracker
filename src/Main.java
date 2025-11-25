@@ -6,12 +6,13 @@ public class Main {
         Users users = new Users();
         System.out.println("Welcome!");
         User user;
+        String userChoice;
 
         do {
             System.out.print("Sign in (1), Sign up (2), or Exit (3): ");
             boolean valid = false;
             do {
-                String userChoice = sc.nextLine(); // String to allow for invalid inputs so that they can be handled in the switch
+                userChoice = sc.next(); // String to allow for invalid inputs so that they can be handled in the switch
                 switch (userChoice) {
                     case "1":
                         String userName;
@@ -27,6 +28,8 @@ public class Main {
                             user = users.signIn(userName, password);
                         } catch (RuntimeException e) {
                             System.out.println(e);
+                            System.out.print("Sign in (1), Sign up (2), or Exit (3): ");
+                            valid = false;
                         }
                         break;
                     case "2":
@@ -40,5 +43,6 @@ public class Main {
                 }
             } while (!(valid)); // runs until a valid response
         } while(true); // runs until case 3 is hit (system.exit)
+
     }
 }
