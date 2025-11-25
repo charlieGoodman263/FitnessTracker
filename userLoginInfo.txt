@@ -1,0 +1,3 @@
+username1:password1
+admin:password
+charlie:charlie
