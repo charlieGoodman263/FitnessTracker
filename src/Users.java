@@ -1,6 +1,3 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,9 +6,15 @@ public class Users {
 
     public Users() {
         this.users = new ArrayList<User>();
-        for (String user : FileUtils.retrieveUserData()) {
+        for (String user : FileUtils.retrieveUsers()) {
             String[] userData = user.split(":");
-            users.add(new User(userData[0], userData[1], userData[2]));
+
+            if (!(userData[0].equals("0"))) { // if client
+                 users.add(new Client(userData[0], userData[1], userData[2]));
+            }
+            else {
+                users.add(new Admin(userData[0], userData[1], userData[2]));
+            }
         }
     }
 
@@ -37,6 +40,8 @@ public class Users {
         }
         throw new RuntimeException("User doesn't exist.");
     }
+
+
     public void signUp() {
         Scanner sc = new Scanner(System.in);
         String userName;
@@ -55,7 +60,7 @@ public class Users {
         System.out.print("Please enter a password: ");
         password = sc.nextLine();
 
-        String userID = "" + (Integer.parseInt(FileUtils.retrieveUserData().getLast().split(":")[0]) + 1); // retrieves the userID of the last user in the file and adds 1, then converts back to a string
+        String userID = "" + (Integer.parseInt(FileUtils.retrieveUsers().getLast().split(":")[0]) + 1); // retrieves the userID of the last user in the file and adds 1, then converts back to a string
         users.add(new User(userID, userName, password));
         FileUtils.appendUser(userID + ":" + userName + ":" + password);
 

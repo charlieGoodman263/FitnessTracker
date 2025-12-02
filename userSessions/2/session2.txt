@@ -1,0 +1,5 @@
+exerciseName,exerciseType,reps:rpe
+exercise1,reps,10:3
+exercise2,seconds,15:4
+exercise3,reps,10:5
+exercise4,seconds,15:6

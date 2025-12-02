@@ -11,6 +11,15 @@ public class User {
     }
 
     // Getters & Setters
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
     public String getUserName() {
         return userName;
     }
