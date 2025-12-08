@@ -1,0 +1,4 @@
+exercise1,reps,10:5.000000
+exercise3,reps,10:3.000000
+exercise2,seconds,15:6.000000
+exercise4,seconds,15:10.000000

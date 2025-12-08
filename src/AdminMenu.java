@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class AdminMenu {
@@ -15,7 +16,7 @@ public class AdminMenu {
                 case "2":
                     System.out.print("Enter client username: ");
                     String target = sc.nextLine();
-                    User user = users.findByUsername(target); // add this helper
+                    User user = users.findByUsername(target);
                     if (!(user instanceof Client)) {
                         System.out.println("Not a client or not found.");
                         break;
@@ -27,7 +28,11 @@ public class AdminMenu {
                     if (sessions.isEmpty()) {
                         System.out.println("No sessions logged.");
                     } else {
-                        sessions.forEach(s -> System.out.println(s.getName() + " -> " + s.getExerciseList().size() + " exercises"));
+
+                        for (Session session : sessions) {
+                            System.out.println(session.getName() + " -> " + session.getExerciseList().size() + " exercises");
+                        }
+
                     }
                     HashMap<Exercise, Double> pbs = client.getPersonalBests();
                     System.out.println("PBs: " + pbs);
