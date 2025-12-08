@@ -1,10 +1,17 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        User user = SignIn.signIn();
-        System.out.println();
+        Scanner sc = new Scanner(System.in);
+        User user = SignIn.signIn(sc);
+        
         if (user instanceof Client) {
-            System.out.println(FileUtils.retrieveUserSessions((Client) user));
-            System.out.println();
+            ClientMenu.run(sc, (Client) user);
+        } 
+        else {
+            AdminMenu.run(sc, (Admin) user);
         }
+
+        sc.close();
     }
 }

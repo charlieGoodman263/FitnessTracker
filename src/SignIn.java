@@ -1,8 +1,7 @@
 import java.util.Scanner;
 
 public class SignIn {
-    public static User signIn() {
-        Scanner sc = new Scanner(System.in);
+    public static User signIn(Scanner sc) {
         Users users = new Users();
         System.out.println("Welcome!");
         User user;

@@ -6,13 +6,13 @@ public class Client extends User{
     private ArrayList<Session> sessions;
 
 
-    public Client(String userName, String password, String userID, HashMap<Exercise, Double> personalBests, ArrayList<Session> sessions) {
-        super(userName, password, userID);
+    public Client(String userID, String userName, String password, HashMap<Exercise, Double> personalBests, ArrayList<Session> sessions) {
+        super(userID, userName, password);
         this.personalBests = personalBests;
         this.sessions = sessions;
     }
-    public Client(String userName, String password, String userID) {
-        super(userName, password, userID);
+    public Client(String userID, String userName, String password) {
+        super(userID, userName, password);
         this.personalBests = new HashMap<>();
         this.sessions = new ArrayList<>();
 

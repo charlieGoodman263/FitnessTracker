@@ -43,9 +43,17 @@ public class FileUtils {
         try {
             File curDir = new File("./userSessions/" + userId);
             File[] filesList = curDir.listFiles();
-            for(File f : filesList){
+
+            if (filesList == null || filesList.length == 0) {
+                return new ArrayList<>(); // no sessions found
+            } 
+
+            for(File f : filesList){ //  collects all the session logs in the user's directory
                 if(f.isFile()) {
-                    sessionNames.add(f.getName()); // collects all the session logs in the user's directory
+                    String name = f.getName();
+                    int dot = name.lastIndexOf('.');
+
+                    sessionNames.add(dot > 0 ? name.substring(0, dot) : name); // adds the session to sessionNames without the file extension (or if there is none then just the name) 
                 }
             }
         }

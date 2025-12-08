@@ -42,4 +42,17 @@ public class Exercise {
                 "exerciseType: '" + exerciseType + '\n' +
                 exerciseType + ": " + reps;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Exercise) {
+            Exercise exercise = (Exercise) obj;
+            return (
+                this.exerciseName.equals(exercise.exerciseName) && 
+                this.exerciseType.equals(exercise.exerciseType) && 
+                this.reps == exercise.reps
+            );
+        }
+        return false;
+    }
 }

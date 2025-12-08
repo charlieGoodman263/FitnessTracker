@@ -45,25 +45,29 @@ public class Users {
     public void signUp() {
         Scanner sc = new Scanner(System.in);
         String userName;
-        boolean valid = true;
         String password;
+        boolean exists = false;
         do {
+            exists = false;
             System.out.print("Please enter your username: ");
             userName = sc.nextLine();
 
             for (User user : users) { // checking user doesn't already exist
                 if (userName.equals(user.getUserName())) {
-                    valid = false;
+                    exists = true;
+                    break;
                 }
             }
-        } while(!(valid));
+        } while(exists); // runs until a unique username is provided);
         System.out.print("Please enter a password: ");
         password = sc.nextLine();
 
-        String userID = "" + (Integer.parseInt(FileUtils.retrieveUsers().getLast().split(":")[0]) + 1); // retrieves the userID of the last user in the file and adds 1, then converts back to a string
+        
+        String userID = "" + users.get(users.size() - 1).getUserID() + 1; // retrieves the userID of the last user in the file and adds 1, then converts back to a string
         users.add(new User(userID, userName, password));
         FileUtils.appendUser(userID + ":" + userName + ":" + password);
 
         System.out.println("Account created.");
+        sc.close();
     }
 }

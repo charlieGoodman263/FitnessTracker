@@ -40,5 +40,14 @@ public class User {
                 + "Password: " + password + "\n";
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof User) {
+            User user = (User) obj;
+            return this.userID == user.userID;
+        }
+        return false;
+    }
+
 
 }
