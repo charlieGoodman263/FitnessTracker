@@ -18,7 +18,7 @@ public class Client extends User{
 
     }
 
-    // Getter & Setter
+    // Getters & Setters
     public HashMap<Exercise, Double> getPersonalBests() {
         return personalBests;
     }
@@ -26,9 +26,18 @@ public class Client extends User{
         this.personalBests.put(exercise, best);
     }
 
+    public ArrayList<Session> getSessions() {
+        return sessions;
+    }
+    public void setSessions(ArrayList<Session> sessions) {
+        this.sessions = sessions;
+    }
+
     @Override
     public String toString() {
         return super.toString()
                 + "Personal Bests: " + personalBests + "\n";
     }
+
+    
 }

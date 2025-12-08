@@ -42,32 +42,49 @@ public class Users {
     }
 
 
-    public void signUp() {
-        Scanner sc = new Scanner(System.in);
+    public void signUp(Scanner sc) {
         String userName;
-        String password;
-        boolean exists = false;
-        do {
-            exists = false;
+        while (true) {
             System.out.print("Please enter your username: ");
-            userName = sc.nextLine();
-
-            for (User user : users) { // checking user doesn't already exist
+            userName = sc.nextLine().trim();
+            if (userName.isEmpty()) {
+                System.out.println("Username cannot be empty.");
+                continue;
+            }
+            boolean exists = false;
+            for (User user : users) {
                 if (userName.equals(user.getUserName())) {
                     exists = true;
+                    System.out.println("Username already exists.");
                     break;
                 }
             }
-        } while(exists); // runs until a unique username is provided);
-        System.out.print("Please enter a password: ");
-        password = sc.nextLine();
+            if (!exists) { 
+                break;
+            }
+        }
+        String password;
+        do {
+            System.out.print("Please enter a password: ");
+            password = sc.nextLine().trim();
+        } while (password.isEmpty());
 
-        
-        String userID = "" + users.get(users.size() - 1).getUserID() + 1; // retrieves the userID of the last user in the file and adds 1, then converts back to a string
-        users.add(new User(userID, userName, password));
+        int nextId = users.get(users.size() - 1).getUserID() + 1;
+        String userID = Integer.toString(nextId);
+
+        Client newClient = new Client(userID, userName, password);
+        users.add(newClient);
         FileUtils.appendUser(userID + ":" + userName + ":" + password);
-
+        
         System.out.println("Account created.");
-        sc.close();
+    }
+
+    public User findByUsername(String username) {
+        for (User user : users) {
+            if (user.getUserName().equals(username)) {
+                return user;
+            }
+        }
+        return null;
     }
 }
