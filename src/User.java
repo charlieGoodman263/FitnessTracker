@@ -3,15 +3,20 @@ public class User {
     protected String userName;
     protected String password;
 
-    // Constructors
+    /**
+     * Creates a user entity using the string fields coming from the storage file.
+     *
+     * @param userID   numeric id as text.
+     * @param userName chosen display name.
+     * @param password credentials.
+     */
     public User(String userID, String userName, String password) {
         this.userID = Integer.parseInt(userID);
         this.userName = userName;
         this.password = password;
     }
 
-    // Getters & Setters
-
+    // Getters and setters
     public int getUserID() {
         return userID;
     }
@@ -23,16 +28,23 @@ public class User {
     public String getUserName() {
         return userName;
     }
+
+
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
     public String getPassword() {
         return password;
     }
+
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     * Displays the user information in one block for debugging.
+     */
     @Override
     public String toString() {
         return "User ID: " + userID + "\n"
@@ -40,6 +52,9 @@ public class User {
                 + "Password: " + password + "\n";
     }
 
+    /**
+     * Two users are considered equal when their IDs match.
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof User) {
@@ -48,6 +63,4 @@ public class User {
         }
         return false;
     }
-
-
 }

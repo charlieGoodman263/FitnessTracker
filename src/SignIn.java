@@ -1,11 +1,15 @@
 import java.util.Scanner;
 
 public class SignIn {
+    /**
+     * Prompts for credentials until a successful sign-in/sign-up or exit.
+     */
     public static User signIn(Scanner sc) {
     Users users = new Users();
     System.out.println("Welcome!");
-    while (true) {
-        System.out.print("Sign in (1), Sign up (2), or Exit (3): ");
+        while (true) {
+            // Keep prompting until the user selects a valid action.
+            System.out.print("Sign in (1), Sign up (2), or Exit (3): ");
         String userChoice = sc.nextLine().trim();
         switch (userChoice) {
             case "1":

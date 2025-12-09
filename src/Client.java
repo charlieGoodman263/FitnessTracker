@@ -5,12 +5,18 @@ public class Client extends User{
     private HashMap<Exercise, Double> personalBests;
     private ArrayList<Session> sessions;
 
+    /**
+     * Creates a full client record from stored maps (used when loading existing users).
+     */
     public Client(String userID, String userName, String password, HashMap<Exercise, Double> personalBests, ArrayList<Session> sessions) {
         super(userID, userName, password);
         this.personalBests = personalBests;
         this.sessions = sessions;
     }
 
+    /**
+     * Creates a new client account and immediately loads any persisted data.
+     */
     public Client(String userID, String userName, String password) {
         super(userID, userName, password);
         this.personalBests = new HashMap<>();
@@ -18,16 +24,25 @@ public class Client extends User{
         loadTrackingData();
     }
 
+    /**
+     * Refreshes the in-memory sessions/PBs from root.
+     */
     public void loadTrackingData() {
         this.sessions = FileUtils.retrieveUserSessions(this);
         this.personalBests = FileUtils.retrievePersonalBests(this);
     }
 
+    /**
+     * Saves the completed session and reloads the log list.
+     */
     public void recordSessionResult(String sessionName, HashMap<Exercise, Integer> results) {
         FileUtils.saveSessionResult(this, sessionName, results);
         this.sessions = FileUtils.retrieveUserSessions(this);
     }
 
+    /**
+     * Updates PB state and saves it to disk when the incoming weight beats the stored value.
+     */
     public void updatePersonalBest(Exercise exercise, double weight) {
         Exercise key = findExerciseKey(exercise);
         double current = personalBests.getOrDefault(key, 0.0);
@@ -37,6 +52,9 @@ public class Client extends User{
         }
     }
 
+    /**
+     * Returns the key for an exercise so existing PBs can be updated.
+     */
     private Exercise findExerciseKey(Exercise exercise) {
         for (Exercise key : personalBests.keySet()) {
             if (key.equals(exercise)) {
@@ -46,7 +64,8 @@ public class Client extends User{
         return exercise;
     }
 
-    // Getters & Setters
+    // Getters and setters
+    
     public HashMap<Exercise, Double> getPersonalBests() {
         return personalBests;
     }
@@ -61,11 +80,5 @@ public class Client extends User{
 
     public void setSessions(ArrayList<Session> sessions) {
         this.sessions = sessions;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString()
-                + "Personal Bests: " + personalBests + "\n";
     }
 }

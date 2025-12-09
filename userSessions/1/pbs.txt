@@ -1,0 +1,3 @@
+Hammer Curl,reps,12:14.000000
+Bent Over Row,reps,10:50.000000
+Face Pulls,reps,15:60.000000

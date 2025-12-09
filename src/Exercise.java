@@ -4,7 +4,9 @@ public class Exercise {
     private int reps;
     private double weight;
 
-    // Constructors
+    /**
+     * Creates a template exercise without a recorded weight.
+     */
     public Exercise(String exerciseName, String exerciseType, int reps) {
         this.exerciseName = exerciseName;
         this.exerciseType = exerciseType;
@@ -12,6 +14,9 @@ public class Exercise {
         this.weight = 0.0;
     }
 
+    /**
+     * Creates an exercise that already has a weight recorded (used when logging a session).
+     */
     public Exercise(String exerciseName, String exerciseType, int reps, double weight) {
         this.exerciseName = exerciseName;
         this.exerciseType = exerciseType;
@@ -19,7 +24,7 @@ public class Exercise {
         this.weight = weight;
     }
 
-    // Getters & Setters
+    // Getters and setters
     public String getExerciseName() {
         return exerciseName;
     }
@@ -52,6 +57,9 @@ public class Exercise {
         this.weight = weight;
     }
 
+    /**
+     * Builds a human-readable description of the exercise.
+     */
     @Override
     public String toString() {
         return "Exercise " +
@@ -61,6 +69,9 @@ public class Exercise {
                 " weight: " + weight;
     }
 
+    /**
+     * Two exercises are equivalent if their identifying fields match.
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Exercise) {
@@ -71,4 +82,5 @@ public class Exercise {
         }
         return false;
     }
+
 }
