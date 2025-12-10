@@ -1,0 +1,5 @@
+exerciseName,exerciseType,reps,weight:RPE
+Bent Over Row,reps,10,65.00:9
+Pull-ups,reps,8,10.00:9
+Hammer Curl,reps,12,16.00:8
+Face Pulls,reps,15,40.00:6

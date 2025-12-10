@@ -18,10 +18,10 @@ public class ClientTest {
         assert client.getPersonalBests().containsKey(exercise);
         TestHelpers.deleteUserDirectory(userId);
         // Logs and PB updates both hit disk, so we clean up to keep future test runs isolated.
+        System.out.println("ClientTest passed");
     }
 
     public static void main(String[] args) throws Exception {
         run();
-        System.out.println("ClientTest passed");
     }
 }

@@ -11,10 +11,10 @@ public class UserTest {
         assert "renamed".equals(user.getUserName());
         user.setPassword("newpass");
         assert "newpass".equals(user.getPassword());
+        System.out.println("UserTest passed");
     }
 
     public static void main(String[] args) {
         run();
-        System.out.println("UserTest passed");
     }
 }

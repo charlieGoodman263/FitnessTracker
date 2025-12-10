@@ -14,6 +14,7 @@ public class SessionTest {
         assert list.containsKey(exercise);
         session.setName("Updated");
         assert "Updated".equals(session.getName());
+        assert session.getAverageRpe() == 8.0;
     }
 
     public static void main(String[] args) {

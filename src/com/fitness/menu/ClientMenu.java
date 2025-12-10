@@ -56,7 +56,7 @@ public class ClientMenu {
             return;
         }
         for (Session session : sessions) {
-            System.out.println("- " + session.getName() + ": " + session.getExerciseList().size() + " exercises");
+            System.out.println("- " + session.getName() + ": " + session.getExerciseList().size() + " exercises. Average RPE: " + String.format("%.2f", session.getAverageRpe()) );
         }
     }
     
@@ -85,6 +85,10 @@ public class ClientMenu {
         Session template = templates.get(selected - 1);
         HashMap<Exercise, Integer> results = new HashMap<>();
         for (Exercise exercise : template.getExerciseList().keySet()) {
+            double[] previous = findLastResult(exercise.getExerciseName());
+            if (previous != null) {
+                System.out.println("Previous " + exercise.getExerciseName() + ": " + previous[0] + " @ RPE " + (int) previous[1]);
+            }
             System.out.println("Logging " + exercise.getExerciseName() + " (" + exercise.getExerciseType() + ": " + exercise.getReps() + ")");
             double weight = promptDouble(sc, "Weight used: ");
             int rpe = promptInt(sc, "RPE (1-10): ");
@@ -151,5 +155,18 @@ public class ClientMenu {
 
             System.out.println(name + ": " + pb + " for " + reps + " " + type);
         }
+    }
+
+    private double[] findLastResult(String exerciseName) {
+        ArrayList<Session> sessions = client.getSessions();
+        for (int i = sessions.size() - 1; i >= 0; i--) {
+            Session session = sessions.get(i);
+            for (Map.Entry<Exercise, Integer> entry : session.getExerciseList().entrySet()) {
+                if (entry.getKey().getExerciseName().equalsIgnoreCase(exerciseName)) {
+                    return new double[]{entry.getKey().getWeight(), entry.getValue()};
+                }
+            }
+        }
+        return null;
     }
 }

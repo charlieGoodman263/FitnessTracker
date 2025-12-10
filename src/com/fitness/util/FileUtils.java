@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -67,12 +68,14 @@ public class FileUtils {
         if (files == null) {
             return sessions;
         }
+        
+        Arrays.sort(files, (a, b) -> a.getName().compareTo(b.getName()));
 
         for (File file : files) {
             if (!file.isFile() || !isLogFile(file.getName())) {
                 continue;
-                // Guard to only get timestamped logs so templates remain separated from history.
             }
+            // Guard to only get timestamped logs so templates remain separated from history.
             Session session = parseSessionFile(file, false);
             if (session != null) {
                 sessions.add(session);

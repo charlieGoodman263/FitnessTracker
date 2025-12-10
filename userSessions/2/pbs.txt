@@ -1,7 +1,12 @@
+Triceps Pushdown,reps,12:35.000000
 Face Pulls,reps,15:40.000000
-Back Squat,reps,5:60.000000
-Romanian Deadlift,reps,8:90.000000
+Hammer Curl,reps,12:16.000000
+Incling Dumbbell Press,reps,10:14.000000
+Walking Lunge,reps,12:20.000000
+Back Squat,reps,5:90.000000
+Bench press,reps,8:60.000000
+Pull-ups,reps,8:10.000000
+Overhead Press,reps,8:35.000000
 Calf Raise,reps,20:80.000000
-Hammer Curl,reps,12:14.000000
-Bent Over Row,reps,10:60.000000
-Walking Lunge,reps,12:14.000000
+Bent Over Row,reps,10:65.000000
+Romanian Deadlift,reps,8:110.000000

@@ -48,6 +48,20 @@ public class Session {
     }
 
     /**
+     * Calculates the average RPE for all exercises in this session.
+     */
+    public double getAverageRpe() {
+        if (exerciseList.isEmpty()) {
+            return 0.0;
+        }
+        int total = 0;
+        for (int rpe : exerciseList.values()) {
+            total += rpe;
+        }
+        return (double) total / exerciseList.size();
+    }
+
+    /**
      * Prints the session name and contained exercises for troubleshooting.
      */
     @Override

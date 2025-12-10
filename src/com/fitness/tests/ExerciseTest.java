@@ -10,10 +10,10 @@ public class ExerciseTest {
         assert template.getWeight() == 100.0;
         Exercise clone = new Exercise("Squat", "reps", 5);
         assert template.equals(clone);
+        System.out.println("ExerciseTest passed");
     }
 
     public static void main(String[] args) {
         run();
-        System.out.println("ExerciseTest passed");
     }
 }

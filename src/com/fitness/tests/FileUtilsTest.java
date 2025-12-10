@@ -29,10 +29,10 @@ public class FileUtilsTest {
         Path dir = Paths.get("userSessions", userId);
         assert Files.exists(dir);
         TestHelpers.deleteUserDirectory(userId);
+        System.out.println("FileUtilsTest passed");
     }
 
     public static void main(String[] args) throws Exception {
         run();
-        System.out.println("FileUtilsTest passed");
     }
 }

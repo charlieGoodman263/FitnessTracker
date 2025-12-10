@@ -11,10 +11,10 @@ public class UsersTest {
         assert admin instanceof Admin;
         User found = users.findByUsername("admin");
         assert found != null;
+        System.out.println("UsersTest passed");
     }
 
     public static void main(String[] args) {
         run();
-        System.out.println("UsersTest passed");
     }
 }

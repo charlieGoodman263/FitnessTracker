@@ -1,0 +1,5 @@
+exerciseName,exerciseType,reps,weight:RPE
+Incling Dumbbell Press,reps,10,14.00:6
+Triceps Pushdown,reps,12,35.00:7
+Overhead Press,reps,8,35.00:7
+Bench press,reps,8,60.00:8

@@ -57,7 +57,7 @@ public class AdminMenu {
             System.out.println("No sessions logged.");
         } else {
             for (Session session : sessions) {
-                System.out.println(session.getName() + " -> " + session.getExerciseList().size() + " exercises");
+                System.out.println("- " + session.getName() + ": " + session.getExerciseList().size() + " exercises. Average RPE: " + String.format("%.2f", session.getAverageRpe()) );
             }
         }
         HashMap<Exercise, Double> pbs = client.getPersonalBests();
