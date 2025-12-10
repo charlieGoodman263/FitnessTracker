@@ -17,4 +17,4 @@ Console-based fitness tracker with client + admin flows. Clients log session tem
 - Admin: list users, view a client’s sessions/PBs, add/delete shared templates.
 # Notes
 
-- RPE = Rate of Perceived Exertion (0–10, 0 = rest, 10 = max effort).
+- RPE = Rate of Perceived Exertion (0 - 10, 0 = rest, 10 = max effort).
