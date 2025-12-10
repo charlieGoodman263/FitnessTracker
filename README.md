@@ -13,7 +13,7 @@ Console-based fitness tracker with client + admin flows. Clients log session tem
 - User data is stored under userSessions/<id>; shared templates live in userSessions/templates.
 # What you can do
 
-- Client: view logged sessions, log a template with weight + RPE (0–10 integer), view personal bests.
+- Client: view logged sessions, log a template with weight + RPE (0 - 10 integer), view personal bests.
 - Admin: list users, view a client’s sessions/PBs, add/delete shared templates.
 # Notes
 
