@@ -1,3 +1,5 @@
+package com.fitness.model;
+
 public class Admin extends User{
     /**
      * Creates an administrator account.

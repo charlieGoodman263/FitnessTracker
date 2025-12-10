@@ -1,3 +1,5 @@
+package com.fitness.model;
+
 public class Exercise {
     private String exerciseName;
     private String exerciseType; // ie x repetitions or x seconds etc.

@@ -1,3 +1,9 @@
+package com.fitness.util;
+
+import com.fitness.model.Client;
+import com.fitness.model.Exercise;
+import com.fitness.model.Session;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;

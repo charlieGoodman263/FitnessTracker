@@ -1,3 +1,5 @@
+package com.fitness.model;
+
 public class User {
     protected int userID;
     protected String userName;

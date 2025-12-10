@@ -1,3 +1,5 @@
+package com.fitness.model;
+
 import java.util.HashMap;
 
 public class Session {

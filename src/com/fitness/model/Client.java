@@ -1,3 +1,7 @@
+package com.fitness.model;
+
+import com.fitness.util.FileUtils;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 

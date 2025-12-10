@@ -1,0 +1,5 @@
+exerciseName,exerciseType,reps,weight:RPE
+Back Squat,reps,5,6.00:6
+Calf Raise,reps,20,6.00:6
+Romanian Deadlift,reps,8,6.00:6
+Walking Lunge,reps,12,6.00:6

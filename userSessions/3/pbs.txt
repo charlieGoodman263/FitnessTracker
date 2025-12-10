@@ -1,0 +1,4 @@
+Back Squat,reps,5:6.000000
+Calf Raise,reps,20:6.000000
+Romanian Deadlift,reps,8:6.000000
+Walking Lunge,reps,12:6.000000

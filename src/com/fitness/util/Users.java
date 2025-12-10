@@ -1,3 +1,9 @@
+package com.fitness.util;
+
+import com.fitness.model.Admin;
+import com.fitness.model.Client;
+import com.fitness.model.User;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 

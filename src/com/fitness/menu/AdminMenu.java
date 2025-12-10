@@ -1,3 +1,12 @@
+package com.fitness.menu;
+
+import com.fitness.model.Client;
+import com.fitness.model.Exercise;
+import com.fitness.model.Session;
+import com.fitness.model.User;
+import com.fitness.util.FileUtils;
+import com.fitness.util.Users;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
